@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Special Moment</title>
+    <style>
+        body {
+            background: no-repeat center fixed;
+            background-size: -120%; /* Zoomed out effect */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #ffcccb; /* Baby Pink */
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .button {
+            background-color: #6a0572;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #4a4e69;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function setBackground() {
+            const params = new URLSearchParams(window.location.search);
+            const imageUrl = params.get('src');
+            const imageAlt = params.get('alt');
+            if (imageUrl) {
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+            }
+            
+            const messages = {
+                "Moment 1": "This moment reminds me of how special you are to me. Every second with you is magical. 💖 You bring joy into my life in ways I never imagined, and I cherish every moment we share.",
+                "Moment 2": "Our love story is my favorite. This moment captures the beauty of us together. ❤️ You are my happiness, my peace, and the love of my life. Every time I see this, I fall for you all over again.",
+                "Moment 3": "No matter where we are, as long as I'm with you, I'm home. This moment is unforgettable. 💕 Your love is my guiding light, and every adventure with you feels like a dream come true."
+            };
+            
+            document.getElementById("loveMessage").innerText = messages[imageAlt] || "You are my heart, my soul, my everything. I love you endlessly. 💖 Every smile of yours makes my world brighter, and I am forever grateful to have you in my life.";
+        }
+        window.onload = setBackground;
+    </script>
+
+    <div class="container">
+        <h1>Our Special Moment ❤️</h1>
+        <p id="loveMessage">You are my heart, my soul, my everything. I love you endlessly. 💖 Every smile of yours makes my world brighter, and I am forever grateful to have you in my life.</p>
+        <button class="button" onclick="window.history.back()">Back to Memories</button>
+    </div>
+    <audio controls autoplay loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
